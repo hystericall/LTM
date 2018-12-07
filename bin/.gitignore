@@ -1,3 +1,5 @@
-/udp/
-/udpTime/
-/simpleChat/
+/tcpInfix/
+/udpInfix/
+/udpString/
+/tcpString/
+/udpChat/

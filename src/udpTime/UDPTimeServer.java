@@ -4,7 +4,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class UDPTimeServer1 {
+public class UDPTimeServer {
 	public static void main(String[] args) throws Exception {
 		//Gan cong 9876 cho chuong trinh
 		DatagramSocket serverSocket = new DatagramSocket(9876);

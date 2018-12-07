@@ -1,4 +1,4 @@
-package simpleDate;
+package tcpTime;
 
 import java.io.*;
 import java.net.*;
