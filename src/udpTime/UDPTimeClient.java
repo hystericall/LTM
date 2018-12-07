@@ -1,4 +1,4 @@
-package udp;
+package udpTime;
 
 import java.io.*;
 import java.net.*;
@@ -11,7 +11,7 @@ public class UDPTimeClient {
 		InetAddress IPAddress = InetAddress.getByName("localhost");
 		byte[] sendData = new byte[1024];
 		byte[] receiveData = new byte[1024];
-		sendData = "getData".getBytes();
+		sendData = "getDate".getBytes();
 		// tao datagram co noi dung yeu cau loai dl  de gui cho server
 		DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, 9876);
 		clientSocket.send(sendPacket); // gui dl cho server

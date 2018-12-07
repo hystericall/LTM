@@ -1,4 +1,4 @@
-package udp;
+package udpTime;
 
 import java.io.*;
 import java.net.*;
@@ -30,7 +30,6 @@ public class UDPTimeServer1 {
 			DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, port);
 			//Gui di lai cho client
 			serverSocket.send(sendPacket);
-			
 		}
 	}
 }
