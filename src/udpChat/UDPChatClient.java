@@ -21,7 +21,7 @@ public class UDPChatClient {
 		try {
 			clientSocket = new DatagramSocket();
 			IPAddress = InetAddress.getByName("localhost");
-			System.out.println("Server stated");
+			System.out.println("Client stated");
 			Thread t1 = new Thread() {
 				
 				@Override
@@ -107,6 +107,7 @@ public class UDPChatClient {
 //			System.out.println(str);
 //			sc = sc.reset();
 //		}
+		new UDPChatClient(9876);
 	}
 
 }

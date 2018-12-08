@@ -12,18 +12,18 @@ public class Connect {
 		try {
 			System.out.println("ket noi csdl");
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-			Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;instance=BUISON-PASONKON\\SQLEXPRESS;databaseName=KhachHang;","sa", "sa");
+			Connection conn = DriverManager.getConnection("jdbc:sqlserver://localhost:1433;instance=BUTATU\\SQLEXPRESS;databaseName=KhachHang;","sa", "sa");
 			Statement stmt = conn.createStatement();
-			String sql21 = "insert into Table1(Id, TenKH, DiaChi, Luong) values('4', 'MaiThinh', 'Hanoi', '400.2')";
+			String sql21 = "insert into Table1(ID, TenKH, DiaChi, Luong) values('4', 'MaiThinh', 'Hanoi', '400.2')";
 			stmt.executeUpdate(sql21);
 			String sql22 = "update Table1 set Luong = Luong + luong * 0.1";
 			stmt.executeUpdate(sql22);
-			String sql33 = "select Id, TenKH, DiaChi, Luong from Table1";
+			String sql33 = "select ID, TenKH, DiaChi, Luong from Table1";
 			ResultSet rs = stmt.executeQuery(sql33);
-			stmt.executeQuery(sql33);
+//			stmt.executeQuery(sql33);
 			System.out.println("succes");
 			while(rs.next()) {
-				int id = rs.getInt("Id");
+				int id = rs.getInt("ID");
 				double luong = rs.getDouble("Luong");
 				String s = rs.getString("TenKH");
 				String d = rs.getString("DiaChi");

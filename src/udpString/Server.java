@@ -39,8 +39,8 @@ public class Server {
     			}
     		}
 		}
-    	str = String.join(",", rs);
-    	return str;
+    	String newStr = String.join(",", rs);
+    	return newStr;
     }
     
     public static void main(String args[]) throws IOException
@@ -50,10 +50,12 @@ public class Server {
 		DatagramSocket serverSocket = new DatagramSocket(9876);
 		//Tao cac mang byte de chua dl gui va nhan
 		System.out.println("Server is started");
-		byte[] receivedData = new byte[1024];
-		byte[] sendData = new byte[1024];
+//		byte[] sendData = new byte[1024];
+		StringBuffer rs = new StringBuffer();
+		String request = "";
 		while(true) {
 			//Tao goi rong de nhan dl tu client
+			byte[] receivedData = new byte[1024];
 			DatagramPacket receivePacket = new DatagramPacket(receivedData, receivedData.length);
 			//Nhan du lieu tu client
 			serverSocket.receive(receivePacket);
@@ -62,14 +64,18 @@ public class Server {
 			// Lay port cua ct client
 			int port = receivePacket.getPort();
 			// Lay ngay gio de gui ngc lai client
-			String request = new String(receivePacket.getData());
+			request = new String(receivePacket.getData());
 			System.out.println(request);
 	        response[0] = request.toUpperCase();
 	        response[1] = convertOpposite(new StringBuffer(request));
 	        response[2] = timNguyenAm(response[0]);
 	        response[3] = String.valueOf(request.split(" ").length);
-	        String rs = String.join("\n", response);
-			sendData = rs.getBytes();
+	        for(int i = 0; i < 4; i++) {
+	        	rs.append(response[i].trim()); //Trim de loai 0 byte, tranh tran sendData
+	        	rs.append("\n");
+	        }
+	        byte[] sendData = new byte[1024]; // Luon luon lam moi sendData
+			sendData = rs.toString().getBytes();
 			DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, port);
 			//Gui di lai cho client
 			serverSocket.send(sendPacket);
