@@ -1,4 +1,4 @@
-package synchronize;
+package synchronizeTest;
 
 class Syn
 {

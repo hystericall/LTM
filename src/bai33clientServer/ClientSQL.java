@@ -1,4 +1,4 @@
-package clientServer;
+package bai33clientServer;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

@@ -1,4 +1,4 @@
-package dbConnect;
+package bai312dbConnect;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -28,7 +28,7 @@ public class Connect1 extends JFrame {
 	private String header[] = { "ID", "HoTen","DiaChi", "Luong" };
 	private DefaultTableModel tblModel = new DefaultTableModel(header, 0);
 	private JTable tb;
-	
+	// Thong tin la url den sql database
 	// URL jdbc:sqlserver://localhost:1433;instance=BUTATU\\SQLEXPRESS;databaseName=KhachHang
 	
 	public Connect1() {

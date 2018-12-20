@@ -1,4 +1,4 @@
-package dbConnect;
+package bai312dbConnect;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
