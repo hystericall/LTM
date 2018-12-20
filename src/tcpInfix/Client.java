@@ -33,17 +33,20 @@ public class Client {
 		String response;
 		
 		while(!line.equals("Over")) {
-			try {
-				line = input.readLine();
-				out.writeUTF(line);
-				do {
-					response = in.readUTF();
-					System.out.println(response);
-				} while(!response.equals("Over"));
-			}
-			catch(IOException i) {
-				System.out.println(i.getMessage());
-			}
+			try
+            { 
+                line = input.readLine();
+//                System.out.println(line);
+                out.writeUTF(line);
+                do {
+                	response = in.readUTF();
+                	System.out.println(response);
+                } while(!response.equals("Over"));
+            } 
+            catch(IOException i) 
+            { 
+                System.out.println(i.getMessage()); 
+            }
 		}
 		try {
 			socket.close();

@@ -23,12 +23,14 @@ public class Server {
             String line = "";
             
             try {
-            	line = in.readUTF();
-            	while(!line.equals("Over")) {
+            	do {
             		line = in.readUTF();
-            		out.writeUTF(String.valueOf(EvaluateString.evaluate(line)));
-            		out.writeUTF("Over");
-            	}
+            		if(!line.equals("Over")) {
+		        		out.writeUTF(String.valueOf(EvaluateString.evaluate(line.trim())));
+		        		out.writeUTF("Over");
+            		}
+            		else break;
+            	}while(true);
             }
             catch(IOException i) {
             	System.out.println(i.getMessage());
